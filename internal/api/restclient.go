@@ -23,3 +23,16 @@ func FetchUsers(client *resty.Client) ([]model.User, error) {
 
 	return users, nil
 }
+
+func FetchPosts(client *resty.Client) ([]model.Post, error) {
+	var posts []model.Post
+	_, err := client.R().
+		SetResult(&posts).
+		Get(POSTS_API)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return posts, nil
+}

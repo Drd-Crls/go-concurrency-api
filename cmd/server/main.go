@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
-
-	"meu-app/internal/api"
-
-	"github.com/go-resty/resty/v2"
+	"log"
+	"meu-app/internal/router"
+	"net/http"
 )
 
-func main() {
-	fmt.Println("watzap")
+const DEFAULT_PORT = ":8080"
 
-	api.FetchUsers(resty.New())
+func main() {
+	router := router.NewRouter()
+	log.Fatal(http.ListenAndServe(DEFAULT_PORT, router))
 }
