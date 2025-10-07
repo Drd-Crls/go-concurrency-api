@@ -2,7 +2,6 @@ package handler
 
 import (
 	"encoding/json"
-	"fmt"
 	"meu-app/internal/api"
 	"meu-app/internal/model"
 	"meu-app/internal/service"
@@ -29,12 +28,18 @@ func UserPostHandler(client *resty.Client) http.HandlerFunc {
 		usersRes := <-usersCh
 		postsRes := <-postsCh
 
+		var usersSummary []model.UserSummary
+
 		for _, user := range usersRes.Data {
-			sla := service.CountUserPosts(user.Id, postsRes.Data)
-			fmt.Println("Usuario ", user.Id, " postou ", sla)
+			postCount := service.CountUserPosts(user.Id, postsRes.Data)
+			usersSummary = append(usersSummary, model.UserSummary{
+				Name:      user.Name,
+				Email:     user.Email,
+				PostCount: postCount,
+			})
 		}
 
 		writer.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(writer).Encode(postsRes)
+		json.NewEncoder(writer).Encode(usersSummary)
 	}
 }

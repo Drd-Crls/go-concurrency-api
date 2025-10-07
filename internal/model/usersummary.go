@@ -1,7 +1,7 @@
 package model
 
 type UserSummary struct {
-	name      string
-	email     string
-	postCount int
+	Name      string
+	Email     string
+	PostCount int
 }
