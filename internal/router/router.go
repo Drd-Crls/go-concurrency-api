@@ -20,6 +20,8 @@ func NewRouter(client *resty.Client) *http.ServeMux {
 		}}),
 	)
 
+	server.HandleFunc("/", handler.Home(client))
+
 	// rest api apenas para fins de visualizar os dados retornados diretamente pela aplicação
 	server.HandleFunc("/user", handler.UserHandler(client))
 	server.HandleFunc("/post", handler.PostHandler(client))
