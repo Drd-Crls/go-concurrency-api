@@ -24,27 +24,29 @@ func FetchToUserSummary(client *resty.Client, userId int) ([]model.UserSummary, 
 	usersRes := <-usersCh
 	postsRes := <-postsCh
 
+	if usersRes.Err != nil {
+		return nil, usersRes.Err
+	}
+
+	if postsRes.Err != nil {
+		return nil, postsRes.Err
+	}
+
 	var usersSummary []model.UserSummary
 
 	for _, user := range usersRes.Data {
-		if userId == 0 {
+		if userId == 0 || userId == user.Id {
 			postCount := CountUserPosts(user.Id, postsRes.Data)
 			usersSummary = append(usersSummary, model.UserSummary{
 				Name:      user.Name,
 				Email:     user.Email,
 				PostCount: postCount,
 			})
-			return usersSummary, nil
-		}
-		if userId == user.Id {
-			postCount := CountUserPosts(userId, postsRes.Data)
-			usersSummary = append(usersSummary, model.UserSummary{
-				Name:      user.Name,
-				Email:     user.Email,
-				PostCount: postCount,
-			})
-			return usersSummary, nil
+			if userId != 0 {
+				break
+			}
 		}
 	}
-	return nil, nil
+
+	return usersSummary, nil
 }
