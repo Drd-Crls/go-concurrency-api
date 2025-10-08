@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Go API</title>
+    <style>
+        body { 
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #00ADD8;
+            color: #ffffff;
+            text-align: center; 
+            padding: 50px 20px;
+        }
+        h1 {
+            color: #F95700;
+            font-size: 3em;
+        }
+        a { 
+            color: #FFD43B; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        a:hover { text-decoration: underline; }
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            margin: 25px auto;
+            border-radius: 15px;
+            max-width: 450px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        img.gopher {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img class="gopher" src="https://blog.golang.org/gopher/gopher.png" alt="Gopher Mascot">
+    <h1>Bem-vindo à API Go!</h1>
+    <div class="card">
+        <p>Acesse o <a href="/playground">GraphQL Playground</a></p>
+        <p>Endpoints REST:</p>
+        <p><a href="/user">/user</a> | <a href="/userPost">/userPost</a></p>
+    </div>
+</body>
+</html>
