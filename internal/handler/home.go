@@ -10,7 +10,7 @@ import (
 
 func Home(*resty.Client) http.HandlerFunc {
 	return func(writer http.ResponseWriter, request *http.Request) {
-		tmplPath := filepath.Join("..", "..", "template", "home.html")
+		tmplPath := filepath.Join("./template", "home.html")
 		tmpl := template.Must(template.ParseFiles(tmplPath))
 		writer.Header().Set("Content-Type", "text/html")
 		tmpl.Execute(writer, nil)
