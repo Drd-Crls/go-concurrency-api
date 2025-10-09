@@ -41,7 +41,7 @@ go mod download
 go run ./cmd/server
 ```
 
-3. Build e run:
+3. Rodar no container Docker:
 
 ```bash
 docker build -t go-api .
