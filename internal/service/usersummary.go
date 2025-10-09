@@ -1,8 +1,8 @@
 package service
 
 import (
-	"meu-app/internal/api"
-	"meu-app/internal/model"
+	"concurrency-go-api/internal/api"
+	"concurrency-go-api/internal/model"
 
 	"github.com/go-resty/resty/v2"
 )

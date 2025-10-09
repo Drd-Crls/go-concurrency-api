@@ -1,8 +1,8 @@
 package handler
 
 import (
+	"concurrency-go-api/internal/api"
 	"encoding/json"
-	"meu-app/internal/api"
 	"net/http"
 
 	"github.com/go-resty/resty/v2"

@@ -3,19 +3,20 @@ package api
 import (
 	"github.com/go-resty/resty/v2"
 
-	"meu-app/internal/model"
+	"concurrency-go-api/internal/model"
 )
 
 const (
-	USERS_API = "https://jsonplaceholder.typicode.com/users"
-	POSTS_API = "https://jsonplaceholder.typicode.com/posts"
+	USERS_ENDPOINT = "/users"
+	POSTS_ENDPOINT = "/posts"
 )
 
 func FetchUsers(client *resty.Client) ([]model.User, error) {
 	var users []model.User
+
 	_, err := client.R().
 		SetResult(&users).
-		Get(USERS_API)
+		Get(USERS_ENDPOINT)
 
 	if err != nil {
 		return nil, err
@@ -28,7 +29,7 @@ func FetchPosts(client *resty.Client) ([]model.Post, error) {
 	var posts []model.Post
 	_, err := client.R().
 		SetResult(&posts).
-		Get(POSTS_API)
+		Get(POSTS_ENDPOINT)
 
 	if err != nil {
 		return nil, err

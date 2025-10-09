@@ -1,7 +1,7 @@
 package service
 
 import (
-	"meu-app/internal/model"
+	"concurrency-go-api/internal/model"
 )
 
 func CountUserPosts(userId int, posts []model.Post) int {

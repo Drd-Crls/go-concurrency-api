@@ -1,4 +1,4 @@
-module meu-app
+module concurrency-go-api
 
 go 1.24.0
 

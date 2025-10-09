@@ -4,11 +4,11 @@ package graph
 
 import (
 	"bytes"
+	"concurrency-go-api/graph/model"
 	"context"
 	"embed"
 	"errors"
 	"fmt"
-	"meu-app/graph/model"
 	"strconv"
 	"sync"
 	"sync/atomic"

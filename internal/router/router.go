@@ -1,8 +1,8 @@
 package router
 
 import (
-	"meu-app/graph"
-	"meu-app/internal/handler"
+	"concurrency-go-api/graph"
+	"concurrency-go-api/internal/handler"
 	"net/http"
 
 	gqlHandler "github.com/99designs/gqlgen/graphql/handler"
