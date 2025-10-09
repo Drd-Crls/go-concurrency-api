@@ -35,14 +35,20 @@ git clone https://github.com/seuusuario/go-concurrency-api.git
 cd go-concurrency-api
 ```
 
-2. Build e run:
+2. Rodando localmente sem Docker
+```bash
+go mod download
+go run ./cmd/server
+```
+
+3. Build e run:
 
 ```bash
 docker build -t go-api .
 docker run -p 8080:8080 go-api
 ```
 
-3. O servidor vai rodar em `http://localhost:8080`.
+4. O servidor vai rodar em `http://localhost:8080`.
 
 ## Endpoints
 
@@ -62,12 +68,4 @@ query {
     postCount
   }
 }
-```
-
-## Testes
-
-O projeto possui testes unitários e de integração:
-
-```bash
-go test ./... -cover
 ```
